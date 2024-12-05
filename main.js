@@ -94,66 +94,20 @@ function getValue(image) {
     }
 }
 
-//Gestion du lancer de dé 
+//Gestion du lancer de dé
 function rollingDice() {
     if(newGame === true) {
         let image  = document.createElement("img");
-    switch (aleatoryDice()) {
-        case 1 :
-        image.setAttribute("src","./images/dice1.png");
-        image.setAttribute("value", 1)
+        let number = aleatoryDice();
+        image.setAttribute("src",`./images/dice${number}.png`);
+        image.setAttribute("value", number);
         image.setAttribute("class", "dice");
         diceDisplay.append(image);
         getValue(image)
         removeDice(image)
-        break;
-        case 2 :
-        image.setAttribute("src", "./images/dice2.png");
-        image.setAttribute("value", 2)
-        image.setAttribute("class", "dice");
-        diceDisplay.append(image);
-        getValue(image)
-        removeDice(image)
-        break;
-        case 3 :
-        image.setAttribute("src", "./images/dice3.png");
-        image.setAttribute("value", 3)
-        image.setAttribute("class", "dice");
-        diceDisplay.append(image);
-        getValue(image)
-        removeDice(image)
-        break;
-        case 4 :
-        image.setAttribute("src", "./images/dice4.png");
-        image.setAttribute("value", 4)
-        image.setAttribute("class", "dice");
-        diceDisplay.append(image);
-        getValue(image)
-        removeDice(image)
-        break;
-        case 5 :
-        image.setAttribute("src", "./images/dice5.png");
-        image.setAttribute("value", 5)
-        image.setAttribute("class", "dice");
-        diceDisplay.append(image);
-        getValue(image)
-        removeDice(image)
-        break;
-        case 6 :
-        image.setAttribute("src", "./images/dice6.png");
-        image.setAttribute("value", 6)
-        image.setAttribute("class", "dice");
-        diceDisplay.append(image);
-        getValue(image)
-        removeDice(image)
-        break;
-        default : 
-        alert('Un erreur s\'est produite veuillez relancer le dé');
-        }
     } else {
         alert('Veuillez tout d\'abord instancier une nouvelle partie');
     }
-
 }
 
 
