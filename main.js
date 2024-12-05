@@ -45,7 +45,6 @@ function stopGame() {
     } else if(stockScoreJ2.innerText >= 100) {
         alert('Félicitations Joueur 2 vous remportez la partie');
         endGame = true;
-    } else {
     }
 }
 
@@ -92,8 +91,6 @@ function getValue(image) {
             currentScoreJ2.innerText = '';
             changePlayer();
         }
-    } else {
-
     }
 }
 
@@ -171,24 +168,31 @@ function arrayNumberSum(tab) {
 
 //Envoi des points courants dans la zone globale
 function holdPoints() {
-    if(player === 'player1') {
-        let textScore1 = currentScoreJ1.innerText;
-        let tab = textScore1.split(',');
-        tab.pop();
-        let newtab1 = arrayNumberSum(tab)
-        stockScoreJ1.innerText += newtab1;
-        currentScoreJ1.innerText = '';
-        stopGame();
-        changePlayer();
+    if(newGame === true) {
+        if(player === 'player1') {
+            let textScore1 = currentScoreJ1.innerText;                          
+            let tab = textScore1.split('-');                                        
+            tab.pop();                                                            
+            let newtab1 = arrayNumberSum(tab); 
+            let previousScore1 = +stockScoreJ1.innerText;                                   
+            stockScoreJ1.innerText = newtab1 + previousScore1;     
+            currentScoreJ1.innerText = '';                                         
+            stopGame();
+            changePlayer();
+        } else {
+            let textScore2 = currentScoreJ2.innerText;
+            let tab = textScore2.split('-');
+            tab.pop();
+            let newtab2 = arrayNumberSum(tab)
+            let previousScore2 = +stockScoreJ2.innerText;
+            stockScoreJ2.innerText = newtab2 + previousScore2;
+            currentScoreJ2.innerText = '';
+            stopGame();
+            changePlayer();
+        }
+        
     } else {
-        let textScore2 = currentScoreJ2.innerText;
-        let tab = textScore2.split(',');
-        tab.pop();
-        let newtab2 = arrayNumberSum(tab)
-        stockScoreJ2.innerHTML += newtab2;
-        currentScoreJ2.innerText = '';
-        stopGame();
-        changePlayer();
+        alert('Veuillez tout d\'abord instancier une nouvelle partie');
     }
 }
 
