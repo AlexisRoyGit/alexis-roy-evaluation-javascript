@@ -40,10 +40,10 @@ function beginGame() {
 //Arret de la partie si un des deux scores atteint 100
 function stopGame() {
     if(stockScoreJ1.innerText >= 100) {
-        alert('Bien joué joueur 1 vous avez gagné');
+        alert('Bien joué Joueur 1 vous avez gagné');
         endGame = true;
     } else if(stockScoreJ2.innerText >= 100) {
-        alert('Félicitations joueur 2 vous remportez la partie');
+        alert('Félicitations Joueur 2 vous remportez la partie');
         endGame = true;
     } else {
     }
@@ -78,9 +78,9 @@ function removeDice(dice) {
 function getValue(image) {
     let value = image.getAttribute('value');
     if(player === 'player1') {
-        currentScoreJ1.innerText += `${value},`;
+        currentScoreJ1.innerText += `${value} - `;
     } else {
-        currentScoreJ2.innerText += `${value},`;
+        currentScoreJ2.innerText += `${value} - `;
     }
 
     if(value === '1'){
