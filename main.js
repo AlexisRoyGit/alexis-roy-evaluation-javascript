@@ -15,19 +15,24 @@ let player = 'player1';
 
 //Debut de la partie
 function beginGame() {
-    newGame = true;
-    if(player === 'player1') {
-        alert('Joueur 1 c\'est à vous de jouer');
-        currentScoreJ1.innerText = '';
-        diceDisplay.innerHTML = '';
-        playerTitle1.setAttribute("class", "currentPlayer");
-        playerTitle2.removeAttribute("class", "currentPlayer");
+    //Rechargement si fin de partie
+    if(endGame === true) {
+        location.reload();
     } else {
-        alert('Joueur 2 à votre tour !');
-        currentScoreJ2.innerText = '';
-        player = 'player2';
-        playerTitle2.setAttribute("class","currentPlayer");
-        playerTitle1.removeAttribute("class", "currentPlayer");
+        newGame = true;
+        if(player === 'player1') {
+            alert('Joueur 1 c\'est à vous de jouer');
+            currentScoreJ1.innerText = '';
+            diceDisplay.innerHTML = '';
+            playerTitle1.setAttribute("class", "currentPlayer");
+            playerTitle2.removeAttribute("class", "currentPlayer");
+        } else {
+            alert('Joueur 2 à votre tour !');
+            currentScoreJ2.innerText = '';
+            player = 'player2';
+            playerTitle2.setAttribute("class","currentPlayer");
+            playerTitle1.removeAttribute("class", "currentPlayer");
+        }
     }
 }
 
